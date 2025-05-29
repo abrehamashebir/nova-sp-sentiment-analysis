@@ -58,7 +58,6 @@ python -m venv venv
 
 ## 📊 Tools & Libraries
 
-- **Python 3.10+**
 - **pandas, numpy, matplotlib, seaborn**
 - **TA-Lib, PyNance**
 - **NLTK, TextBlob, VADER**
