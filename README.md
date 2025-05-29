@@ -2,7 +2,12 @@
 
 This project aims to enhance stock market forecasting using a combination of financial news sentiment analysis and technical stock indicators. By integrating qualitative (news sentiment) and quantitative (price data) factors, we analyze the relationship between investor sentiment and stock performance to develop actionable investment insights.
 
----
+## Development Environment Setup
+
+### Prerequisites
+- Python 3.8+
+- Git
+
 
 ## 📁 Project Structure
 
@@ -19,8 +24,18 @@ nova-sp-sentiment-analysis
 └── test
 
 ```
+### Set Up Virtual Environment
+ For Linux/macOS
+```bash
+python -m venv venv
+source venv/bin/activate
+```
 
----
+ For Windows
+ ```bash
+python -m venv venv
+.\venv\Scripts\activate
+
 
 ## 🚀 Project Objectives
 
@@ -50,7 +65,6 @@ nova-sp-sentiment-analysis
 - **scikit-learn, gensim** (for NLP and topic modeling)
 - **plotly, seaborn** (for visualizations)
 
----
 
 ## ⚙️ Setup Instructions
 
@@ -59,3 +73,8 @@ nova-sp-sentiment-analysis
    git clone https://github.com/abrehamashebir/nova-sp-sentiment-analysis.git
    cd nova-sp-sentiment-analysis
    ```
+### Install Python Dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
