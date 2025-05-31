@@ -29,14 +29,17 @@ class news_data:
         Returns:
         pd.DataFrame: DataFrame containing the news data.
         """
-        if not os.path.exists(self.file_path):
-            raise FileNotFoundError(f"The file {self.file_path} does not exist.")
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"The file {file_path} does not exist.")
         
         try:
-            df = pd.read_csv(self.file_path)
+            df = pd.read_csv(file_path)
             return df
         except Exception as e:
-            raise ValueError(f"Error loading data from {self.file_path}: {e}")
+            raise ValueError(f"Error loading data from {file_path}: {e}")
+        
+    
+
     def preprocess_news_data(self,df):
         """
         Preprocess news data by converting date column to datetime and setting it as index.
@@ -47,14 +50,17 @@ class news_data:
         Returns:
         pd.DataFrame: Preprocessed DataFrame with date as index.
         """
-        if 'Date' not in self.df.columns:
-            raise ValueError("DataFrame must contain a 'Date' column.")
+        if 'Unnamed:0' in df.columns:
+            df.drop(columns=['Unnamed'], inplace=True)
+
+        if 'date' not in df.columns:
+            raise ValueError("DataFrame must contain a 'Ddte' column.")
         
-        df['Date'] = pd.to_datetime(df['Date']).dt.date
-        if df['Date'].isnull().any():
+        df['date'] = pd.to_datetime(df['date'], format='ISO8601').dt.date
+        if df['date'].isnull().any():
             raise ValueError("Date column contains invalid dates.")
         
-        df.set_index('Date', inplace=True)
+        df.set_index('date', inplace=True)
         
         return df
     def plot_news_data(df, column='Sentiment'):
@@ -125,16 +131,4 @@ class news_data:
             print(f"Data saved to {file_path}")
         except Exception as e:
             raise ValueError(f"Error saving data to {file_path}: {e}")
-    def load_and_preprocess_news(file_path):
-        """
-        Load and preprocess news data from a CSV file.
-        
-        Parameters:
-        file_path (str): Path to the CSV file containing news data.
-        
-        Returns:
-        pd.DataFrame: Preprocessed DataFrame with date as index.
-        """
-        df = load_news_data(file_path)
-        return preprocess_news_data(df)     
-    
+   

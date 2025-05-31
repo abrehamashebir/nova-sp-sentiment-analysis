@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 images/
+cleaned_datasets/
 datasets
 .Python
 build/
