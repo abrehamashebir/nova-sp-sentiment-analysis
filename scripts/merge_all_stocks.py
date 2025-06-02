@@ -4,7 +4,7 @@ from src.stock_data import StockData
 import pandas as pd
 import os
 
-def process_and_merge_stocks(tickers, base_dir="./datasets/"):
+def process_and_merge_stocks(tickers, base_dir="../datasets/"):
     all_dfs = []
 
     for ticker in tickers:

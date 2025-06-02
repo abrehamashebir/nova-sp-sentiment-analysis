@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 images/
-cleaned_datasets/
+clean_datasets/
 datasets
 .Python
 build/
@@ -175,3 +175,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+cleaned_datasets/
+cleaned_datasets/cleaned_news_data.csv
+cleaned_datasets/
